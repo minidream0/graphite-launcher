@@ -1,0 +1,16 @@
+.operation-stage{position:fixed;inset:auto 24px 24px auto;margin:0;width:min(530px,calc(100vw - 32px));height:310px;overflow:hidden;border:1px solid #5e5046;border-radius:18px;background:#1b1918;color:#eee9e2;box-shadow:0 24px 70px #0008;padding:0;isolation:isolate}
+.operation-stage::backdrop{background:transparent;pointer-events:none}
+.operation-viewport{position:absolute;inset:0 0 104px;overflow:hidden;pointer-events:none;mask-image:linear-gradient(#000 0%,#000 88%,transparent 100%)}
+.operation-stage canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .32s ease}
+.operation-stage[data-mode=webgl] canvas{opacity:1}
+.operation-art{position:absolute;inset:0;background:linear-gradient(0deg,#181615 0%,#18161599 40%,#18161566),url('/basalt.png') center 45%/cover;opacity:.5}
+.operation-stage:not(.operation-portal) .operation-art{background:radial-gradient(ellipse at 50% 10%,#51413866,transparent 75%);opacity:1}
+.operation-hide{position:absolute;right:12px;top:12px;z-index:2;color:#c7beb5;background:#24201cbb}
+.operation-caption{position:absolute;left:24px;right:48px;bottom:22px;pointer-events:none;text-shadow:0 2px 12px #171514}
+.operation-eyebrow{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1.1px;color:#ada297}.operation-eyebrow i{width:4px;height:4px;border-radius:50%;background:#dd9279}
+.operation-caption h3{margin:7px 0 5px;font-size:22px;font-weight:550;letter-spacing:-.5px}.operation-caption p{margin:0;font-size:12px;color:#b8afa6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.operation-static{position:absolute;top:calc(50% - 40px);left:calc(50% - 40px);width:80px;height:80px;opacity:.6;transition:opacity .22s ease}
+.operation-stage[data-mode=webgl] .operation-static{opacity:0}
+.operation-progress{position:absolute;bottom:0;left:0;right:0;height:2px;background:#3b322b}.operation-progress span{display:block;height:100%;background:#df9c80;transform-origin:left;transition:transform .35s ease}
+@media(max-height:720px){.operation-stage{height:260px;width:440px;bottom:16px;right:16px}}
+@media(prefers-reduced-motion:reduce){.operation-progress span,.operation-static,.operation-stage canvas{transition:none}}

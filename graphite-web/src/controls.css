@@ -1,0 +1,69 @@
+/* Shared interaction shapes; each theme keeps its own artwork and icon family. */
+:root{--control-fill:#ffffff09;--control-hover:#ffffff10;--control-line:#ffffff12;--control-text:#ded6ce;--control-ink:#291c17;--control-accent-hover:#efa58c;--control-press:cubic-bezier(.2,.8,.2,1)}
+:root[data-theme=smoky]{--control-fill:#f8e3d60a;--control-hover:#f8e3d613;--control-line:#f8e3d616;--control-text:#e7d9d0;--control-ink:#30232a;--control-accent-hover:#e7c6b2}
+
+/* Filled actions, quiet secondary actions and text navigation are separate tiers. */
+:root[data-theme] :is(.primary-button,.launch-button){border:1px solid transparent;border-radius:12px;background:var(--color-coral);color:var(--control-ink);box-shadow:none;transition:transform 160ms var(--control-press),background-color 180ms ease,opacity 180ms ease}
+:root[data-theme] .launch-button{height:48px;border-radius:15px;padding-inline:18px}
+:root[data-theme] :is(.secondary-button,.create-top){border:1px solid transparent;border-radius:12px;background:var(--control-fill);color:var(--control-text);box-shadow:none;min-height:40px;padding-inline:16px;transition:transform 160ms var(--control-press),background-color 180ms ease,color 180ms ease}
+:root[data-theme] .create-top{border-radius:999px;padding-inline:18px}
+:root[data-theme] .new-instance-nav{border-color:transparent;border-radius:12px;background:transparent;box-shadow:none;color:var(--color-chalk)}
+:root[data-theme] :is(.glyph,.text-button,.inline-action,.launch-account,.new-instance-nav){border-radius:10px;transition:background-color 160ms ease,color 160ms ease,transform 160ms var(--control-press)}
+:root[data-theme] .text-button{padding-inline:9px}
+:root[data-theme] .launch-account{padding:5px 8px;margin-right:-8px}
+:root[data-theme] :is(.nav-row,.quick-instance,.quick-release,.account-row,.command-option){border-radius:11px}
+:root[data-theme] .nav-row.active{border-color:transparent;box-shadow:none}
+:root[data-theme] .nav-row.active:before{content:none}
+
+/* Tools belong to the selected instance, without six identical bordered tiles. */
+:root[data-theme] .detail-tools{grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 12px;padding-bottom:12px;border-bottom:1px solid var(--control-line)}
+:root[data-theme] .context-button{min-height:43px;padding:8px 10px;border:1px solid transparent;border-radius:11px;background:transparent;box-shadow:none;color:var(--control-text);font-size:12px;gap:10px;transition:background-color 160ms ease,color 160ms ease,transform 160ms var(--control-press)}
+:root[data-theme] .detail-actions{gap:16px}
+:root[data-theme] .instance-health-tools{gap:20px}
+:root[data-theme] .instance-health-tools button{padding:12px 10px;border-color:transparent;border-radius:11px;background:transparent;box-shadow:none;transition:background-color 160ms ease,color 160ms ease,transform 160ms var(--control-press)}
+
+/* Fields and selectors stay recognisable without a hard outline on every item. */
+:root[data-theme] :is(.global-command,.local-search,.catalog-search){border-radius:13px;border-color:var(--control-line);box-shadow:none}
+:root[data-theme] :is(.form-field input,.form-field select,.form-field textarea,.manage-name input,.installed-mods>input,.catalog-filters select){border-radius:11px;border-color:var(--control-line);box-shadow:none;transition:border-color 160ms ease,background-color 160ms ease}
+:root[data-theme] :is(.local-search,.catalog-search):focus-within{border-color:var(--color-coral)}
+:root[data-theme] :is(.form-field input,.form-field select,.form-field textarea):focus{border-color:var(--color-coral)}
+:root[data-theme] :is(.library-item,.release-item,.catalog-item){border-radius:13px}
+:root[data-theme] :is(.library-item.selected,.release-item.selected){border-color:transparent;box-shadow:inset 0 0 0 1px var(--control-line)}
+:root[data-theme] :is(.catalog-tabs,.loader-options){border-radius:13px}
+:root[data-theme] :is(.catalog-tabs button,.loader-options button){border-radius:10px;transition:background-color 180ms ease,color 180ms ease,transform 160ms var(--control-press)}
+:root[data-theme] .loader-options button{border-color:transparent;background:var(--control-fill)}
+:root[data-theme] .loader-options button.chosen{background:color-mix(in srgb,var(--color-coral) 16%,transparent);color:var(--color-chalk);border-color:transparent}
+:root[data-theme] :is(.catalog-pagination button,.input-with-button button){border-radius:9px}
+:root[data-theme] .graphite-picker button{border-radius:12px;border-color:transparent;background:transparent;box-shadow:none}
+:root[data-theme] .graphite-picker button[aria-pressed=true]{border-color:var(--color-coral);background:var(--control-fill);box-shadow:none}
+:root[data-theme] .theme-options>button{border-radius:16px;box-shadow:none}
+:root[data-theme] .theme-preview{border-radius:10px}
+:root[data-theme] :is(.state-pill,.job-state){border-radius:999px;border-color:transparent}
+:root[data-theme] :is(.panel-dialog,.panel-surface,.command-dialog,.command-surface){border-radius:20px}
+:root[data-theme] :is(.server-card,.queue-item,.server-form,.update-preview,.tool-hero,.queue-summary){border-radius:16px;box-shadow:none}
+:root[data-theme] .server-workspace .server-card{border-radius:18px;box-shadow:none}
+:root[data-theme] .tool-hero:after,:root[data-theme] .queue-summary:after{content:none}
+:root[data-theme] .eyebrow{letter-spacing:.02em;text-transform:none}
+:root[data-theme] :is(.panel-error,.error-message,.installed-confirm,.inline-confirm,.cleanup-confirm,.device-code){border-radius:12px}
+:root[data-theme] .notification{border-radius:14px}
+
+@media(hover:hover){
+ :root[data-theme] :is(.primary-button,.launch-button):hover:not(:disabled){background:var(--control-accent-hover)}
+ :root[data-theme] :is(.secondary-button,.create-top,.new-instance-nav,.context-button,.text-button,.launch-account,.instance-health-tools button):hover:not(:disabled){background:var(--control-hover);border-color:transparent;box-shadow:none;color:var(--color-chalk);transform:none}
+ :root[data-theme] .graphite-picker button:hover{background:var(--control-hover)}
+ :root[data-theme] .server-workspace .server-card:hover{transform:none}
+}
+:root[data-theme] :is(.primary-button,.secondary-button,.create-top,.launch-button,.context-button,.new-instance-nav,.glyph,.instance-health-tools button):active:not(:disabled){transform:scale(.98);transition-duration:90ms}
+:root[data-theme] :is(button,a,input,select,textarea):focus-visible{outline:2px solid var(--color-coral);outline-offset:3px}
+:root[data-theme] button:disabled{transform:none}
+:root[data-theme] :is(.text-button,.secondary-button).danger{color:#f3a18c}
+@media(max-height:780px){
+ :root[data-theme] .context-button{min-height:35px;padding:5px 8px;font-size:11px}
+ :root[data-theme] .detail-tools{gap:1px 6px;padding-bottom:8px}
+ :root[data-theme] .detail-actions{gap:12px}
+ :root[data-theme] .launch-button{height:42px;border-radius:13px}
+}
+@media(prefers-reduced-motion:reduce){
+ :root[data-theme] *, :root[data-theme] *::before, :root[data-theme] *::after{transition:none!important;animation:none!important}
+ :root[data-theme] :is(.primary-button,.secondary-button,.create-top,.launch-button,.context-button,.new-instance-nav,.glyph,.instance-health-tools button):active:not(:disabled){transform:none}
+}

@@ -1,0 +1,31 @@
+name: Ошибка
+description: Сообщить о проблеме в Graphite
+body:
+  - type: markdown
+    attributes:
+      value: Не прикладывайте пароли, токены и файлы аккаунтов. Перед отправкой проверьте содержимое логов.
+  - type: input
+    id: version
+    attributes:
+      label: Версия Graphite
+      placeholder: 0.11.2
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Windows, Minecraft и загрузчик
+      placeholder: Windows 11, Minecraft 1.20.1, Fabric
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Что произошло и как повторить
+      description: Укажите действия, ожидаемый результат и фактический результат.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Сообщение об ошибке или очищенный лог

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="light" x1="40" y1="24" x2="215" y2="231" gradientUnits="userSpaceOnUse"><stop stop-color="#c7c1ba"/><stop offset="1" stop-color="#aaa49e"/></linearGradient>
+    <linearGradient id="dark" x1="147" y1="26" x2="230" y2="115" gradientUnits="userSpaceOnUse"><stop stop-color="#625f61"/><stop offset="1" stop-color="#4e4b4e"/></linearGradient>
+  </defs>
+  <path d="M26 56 58 24h85v62H93L81 99v54H26Z" fill="url(#light)"/>
+  <path d="m26 56 32-32h85v7H61L33 59v94h-7Z" fill="#d5cfc7"/>
+  <path d="m81 99 9-10v56l-9 8Z" fill="#827d79"/>
+  <path d="M147 25h80l8 9v81h-88Z" fill="url(#dark)"/>
+  <path d="M147 25h80l8 9h-88Z" fill="#797576"/>
+  <path d="M227 34h8v81l-8-6Z" fill="#434144"/>
+  <path d="M26 165h55l32 25v41H34l-8-8Z" fill="#575457"/>
+  <path d="m26 165 8-10h47l32 26v9l-32-25Z" fill="#696568"/>
+  <path d="M81 153h20l35 26h-26Z" fill="#ec957f"/>
+  <path d="M110 179h26v6h-26Z" fill="#bd6e5a"/>
+  <path d="M139 151h80v58l-21 22h-59Z" fill="url(#light)"/>
+  <path d="m139 151 16-15h71l9 8-16 7Z" fill="#d0c9c1"/>
+  <path d="m219 151 16-7v63l-25 24h-12l21-22Z" fill="#77716d"/>
+</svg>

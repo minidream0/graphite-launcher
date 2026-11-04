@@ -1,0 +1,66 @@
+/* The approved material icon sheets are rendered directly, without labels or re-generation. */
+.graphite-icon{display:inline-block;flex-shrink:0;overflow:hidden;vertical-align:middle;pointer-events:none}
+.nav-row>.graphite-icon{width:25px;height:25px}
+.nav-row{gap:10px;min-height:45px}
+.nav-catalog{padding-block:5px}
+.context-button>.graphite-icon{width:24px;height:24px}
+.context-button{min-height:52px;background:linear-gradient(160deg,#2b2928,#242222);border-color:#403c39 #35312f #1a1918;box-shadow:inset 0 1px #ffffff07,0 2px 3px #0002;gap:10px;color:#d2ceca}
+.context-button:hover{background:linear-gradient(160deg,#34302e,#2a2725);border-color:#665047 #49403c #25211f}
+.secondary-button,.create-top,.new-instance-nav{background:linear-gradient(155deg,#2e2b29,#242222);border:1px solid #ffffff13;box-shadow:inset 0 1px #ffffff06,0 2px 4px #0002}
+.secondary-button:hover,.create-top:hover,.new-instance-nav:hover{background:#36312e}
+.primary-button,.launch-button{background:linear-gradient(155deg,#e8937c,#da8069);border-color:#efa68e;color:#241b18;box-shadow:inset 0 1px #ffd5c033,0 3px 8px #0003}
+.nav-row.active{background:linear-gradient(150deg,#302b28,#272423);border-color:#ffffff0b;box-shadow:inset 0 1px #ffffff07}
+.panel-dialog{background:linear-gradient(145deg,#282625,#201f1e);border-color:#46403b #302d2a #171615}
+.panel-title-icon{width:38px;height:38px;background:transparent;border:0;border-radius:0}
+.panel-title-icon>.graphite-icon{width:29px;height:29px}
+.form-field input,.form-field select,.form-field textarea{background:#171615;border-color:#3b3733;box-shadow:inset 0 1px 3px #0003}
+.panel-settings .panel-footer,.panel-edit .panel-footer,.panel-create .panel-footer{background:#23211f}
+.instance-symbol>.graphite-icon{width:34px;height:34px}
+.detail-instance-icon>.graphite-icon{width:34px;height:34px}
+.quick-instance>.graphite-icon{width:22px;height:22px}
+.version-mark>.graphite-icon{width:26px;height:26px}
+.release-item>.graphite-icon{width:30px;height:30px}
+.command-icon>.graphite-icon{width:28px;height:28px}
+.command-icon img{width:28px;height:28px;object-fit:contain}
+.global-command>.graphite-icon{width:21px;height:21px}
+.account-glyph>.graphite-icon{width:26px;height:26px}
+.account-avatar>.graphite-icon{width:32px;height:32px}
+.account-empty>.graphite-icon{width:54px;height:54px}
+.empty-stack>.graphite-icon{width:48px;height:48px}
+.icon-picker.graphite-picker{grid-template-columns:repeat(auto-fill,minmax(54px,1fr));max-height:270px;gap:7px;padding:3px}
+.graphite-picker button{height:52px;background:linear-gradient(150deg,#2b2826,#211f1d);border-color:#433c36;border-radius:8px}
+.graphite-picker button[aria-pressed=true]{border-color:#e8937c;background:#3c2f29;box-shadow:inset 0 0 0 1px #e8937c30}
+.graphite-picker button .graphite-icon{width:34px;height:34px}
+.custom-icon-heading{margin-top:22px}
+.job-icon>.graphite-icon{width:30px;height:30px}
+.panel-error>.graphite-icon,.error-message>.graphite-icon{width:28px;height:28px}
+.launch-button>.graphite-icon{width:27px;height:27px}
+.launch-account>.graphite-icon{width:25px;height:25px}
+.glyph>.graphite-icon{width:24px;height:24px}
+:root{--color-canvas:#141312;--color-chalk:#eee9e3;--color-faint:#a6a09a;--color-coral:#e8937c}
+.windowbar,.sidebar{background:#191817}.workarea{background:#121211}
+.product-stage,.collection-pane{background:#1d1c1a;border-color:#393530}
+.game-detail,.detail-actions{background:#1c1b19;border-color:#393530}
+.detail-copy{background:#23211f}
+.global-command,.local-search{background:#171615;border-color:#36312d}
+.nav-row,.launch-account{color:#b1aaa3}.nav-catalog small,.footer-note,.instance-facts dt{color:#9c938a}
+.instance-facts dd{color:#ded6cd}.detail-status{color:#d8d6cd;background:#1b1b18db}
+.library-item.selected,.release-item.selected{background:#2c2521;border-color:#705143}
+.detail-meta-dot,.nav-row.active:before{background:var(--color-coral)}
+.switch-row input:checked{background:var(--color-coral)}
+:is(button,a,input,select,textarea):focus-visible{outline-color:var(--color-coral)}
+.launch-button>svg:first-child{width:21px;height:21px;color:#33231d}
+.input-with-button .graphite-icon{width:22px;height:22px}
+.command-dialog{background:#262320;border-color:#484039}
+.catalog-tabs,.catalog-search,.catalog-filters select,.installed-mods>input,.manage-name input{background:#171615;border-color:#3b3733}
+.catalog-tabs button[aria-selected=true],.catalog-item.chosen{background:#e8937c12;border-color:#e8937c55;color:#edb29f}
+.field-hint,.form-field small,.catalog-author,.catalog-source,.catalog-item small,.account-entry small,.job-state{color:var(--color-faint)}
+.catalog-project-icon{position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex-shrink:0}
+.catalog-project-icon img{position:absolute;inset:0;object-fit:contain;border-radius:6px}
+.catalog-tabs button{display:inline-flex;align-items:center;gap:7px;padding-inline:12px}
+.installed-icon>.graphite-icon{width:26px;height:26px}
+.file-drop>div>svg{display:block;margin:0 auto 16px}
+.detail-art{transform:scale(1.08);transform-origin:68% 42%;filter:brightness(.82) saturate(.68) contrast(1.1)}
+.detail-shade{background:linear-gradient(180deg,#13131055 0%,transparent 30%,#12110f33 55%,#171512ed 100%),radial-gradient(ellipse at 68% 40%,transparent 25%,#13120fc2 100%),linear-gradient(90deg,#16130f50,transparent 75%)}
+@media(max-height:780px){.nav-row{min-height:34px}.nav-row>.graphite-icon{width:24px;height:24px}.detail-instance-icon>.graphite-icon{width:30px;height:30px}.context-button{min-height:36px;padding:6px;gap:6px}.context-button>.graphite-icon{width:22px;height:22px}.icon-picker.graphite-picker{max-height:190px}}
+@media(prefers-reduced-motion:reduce){.graphite-icon{animation:none!important}}

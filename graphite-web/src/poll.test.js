@@ -1,0 +1,5 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {createPoller,retainSnapshot} from './poll.js';
+test('unchanged snapshots retain identity and changed values update',()=>{const previous={jobs:[{id:'a',current:1}],accounts:[]};assert.equal(retainSnapshot(previous,structuredClone(previous)),previous);const next={...previous,jobs:[{id:'a',current:2}]};assert.equal(retainSnapshot(previous,next),next)});
+test('polling coalesces concurrent refreshes and stops delivering after disposal',async()=>{let reads=0,resolve;const accepted=[];const poll=createPoller({read:()=>{reads++;return new Promise(r=>resolve=r)},accept:v=>accepted.push(v),onError:e=>{throw e},getDelay:()=>60000});const first=poll.refresh();poll.refresh();await Promise.resolve();assert.equal(reads,1);resolve('first');await first;await new Promise(r=>setTimeout(r,20));assert.equal(reads,2);assert.deepEqual(accepted,['first']);poll.stop();resolve('second');await new Promise(r=>setTimeout(r,20));assert.deepEqual(accepted,['first']);await poll.refresh();assert.equal(reads,2)});

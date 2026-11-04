@@ -1,0 +1,10 @@
+import React,{useEffect,useState} from 'react';
+import {FolderOpen,ImportIcon,SpinnerGap} from './icons';
+import {message} from './errors';
+export default function ImportPack({onStarted,initialFile}){
+ const [file,setFile]=useState(null),[name,setName]=useState(''),[trusted,setTrusted]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('');
+ useEffect(()=>{if(initialFile){setFile(initialFile);setName(initialFile.name.replace(/\.(mrpack|zip)$/i,''));setTrusted(false);setError('')}},[initialFile]);
+ async function choose(){setError('');try{const result=await window.launcher.pickImport();if(result){setFile(result);setName(result.name.replace(/\.(mrpack|zip)$/i,''));setTrusted(false)}}catch(e){setError(message(e))}}
+ async function install(e){e.preventDefault();setBusy(true);setError('');try{await window.launcher.importInstance(file.token,name,trusted);onStarted()}catch(e){setError(message(e))}finally{setBusy(false)}}
+ return <form onSubmit={install}>{error&&<p className="panel-error" role="alert">{error}</p>}<section className="form-section"><div className="section-heading"><span>Файл сборки</span><span>.mrpack / .zip</span></div><button type="button" className="secondary-button w-full" onClick={choose}><FolderOpen size={17}/>{file?file.name:'Выбрать файл'}</button></section>{file&&<section className="form-section"><label className="form-field">Название сборки<input aria-label="Название импортируемой сборки" value={name} maxLength="100" required onChange={e=>setName(e.target.value)}/></label><label className="switch-row mt-4"><span>Доверяю архиву и содержащимся в нём модам</span><input aria-label="Подтвердить доверие к архиву" type="checkbox" checked={trusted} onChange={e=>setTrusted(e.target.checked)}/></label></section>}<div className="panel-footer"><span className="footer-note">Архив останется на месте</span><button className="primary-button" disabled={!file||!trusted||busy}>{busy?<SpinnerGap className="spin" size={17}/>:<ImportIcon size={17}/>}Импортировать</button></div></form>
+}

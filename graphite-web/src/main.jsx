@@ -1,0 +1,17 @@
+import React from 'react';
+import './native.js';
+import {createRoot} from 'react-dom/client';
+import '@fontsource-variable/ibm-plex-sans/index.css';
+import App from './Startup.jsx';
+import OperationStage from './OperationStage.jsx';
+import {initializeTheme} from './theme';
+import './style.css';
+import './motion.css';
+import './modrinth.css';
+import './usability.css';
+import './installed-mods.css';
+import './graphite-theme.css';
+import './tools.css';
+import './smoky.css';
+import './controls.css';
+initializeTheme().finally(()=>{createRoot(document.getElementById('root')).render(<><App/><OperationStage/></>);if(window.__TAURI__)requestAnimationFrame(()=>window.launcher.window('ready'))});

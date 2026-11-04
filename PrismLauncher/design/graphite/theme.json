@@ -1,0 +1,14 @@
+{
+  "name": "Graphite",
+  "widgets": "Fusion",
+  "qssFilePath": "themeStyle.css",
+  "colors": {
+    "Window": "#17191b", "WindowText": "#e9ece8",
+    "Base": "#121416", "AlternateBase": "#1d2022",
+    "ToolTipBase": "#292d2f", "ToolTipText": "#f0f2ee",
+    "Text": "#e9ece8", "Button": "#24282a", "ButtonText": "#e9ece8",
+    "BrightText": "#ffffff", "Link": "#b4d99a",
+    "Highlight": "#354c37", "HighlightedText": "#f3f7ef",
+    "fadeColor": "#17191b", "fadeAmount": 0.5
+  }
+}

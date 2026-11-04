@@ -1,0 +1,11 @@
+# Third-party components
+
+- **Prism Launcher / MultiMC-derived code**: GPL-3.0-only for launcher code. Preserve `PrismLauncher/LICENSE`, `COPYING.md` and individual notices. Upstream Prism branding has separate CC BY-SA terms. Graphite is an independent project, not an official Prism distribution. https://github.com/PrismLauncher/PrismLauncher
+- **libnbtplusplus and other vendored C++ libraries**: sources and original notices are in `PrismLauncher/libraries`. Do not replace their licenses with Graphite's root license.
+- **React, React DOM, Three.js, Phosphor icons and IBM Plex Sans**: package versions are recorded in package-lock.json. Available license texts are included in `third-party/runtime-licenses` and in the portable distribution's `licenses` directory.
+- **Rust crates / Tauri**: versions/checksums are recorded in Cargo.lock; collected crate license texts are under `third-party/runtime-licenses/rust`. Check every dependency's own license when preparing another build; this is not a comprehensive legal audit.
+- **Qt / MSYS2 native runtime libraries**: supplied dynamically in portable/engine. Their redistribution and corresponding-source obligations must be reviewed using the exact packages deployed; the launcher source is not a replacement for Qt/library source.
+- **authlib-injector v1.2.7**: unmodified binary used for third-party account integration. Upstream source archive and extracted source are included in `third-party`. Preserve its LICENSE and notices. Upstream describes AGPLv3-or-later with an AUTHLIB-INJECTOR exception; use the supplied version's actual license text. https://github.com/yushijinhun/authlib-injector/releases/tag/v1.2.7
+- **Generated Graphite artwork and icon atlases**: original assets and generation prompts are included in graphite-web/public and graphite-web/design. Prompts/provenance do not establish exclusivity of the visual identity. User-added/remote project icons are not redistributed as private launcher data.
+
+The official authlib source archive was downloaded from https://codeload.github.com/yushijinhun/authlib-injector/zip/refs/tags/v1.2.7 while preparing this bundle. Existing JAR bytes were not modified. Test fixture JARs inside PrismLauncher/tests are upstream test data; they are not a user's Minecraft installation.
