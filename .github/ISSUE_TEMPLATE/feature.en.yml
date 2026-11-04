@@ -1,0 +1,15 @@
+name: Feature request (EN)
+description: Suggest a change to Graphite
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: How should it work?
+    validations:
+      required: true

@@ -1,4 +1,4 @@
-name: Ошибка
+name: Ошибка (RU)
 description: Сообщить о проблеме в Graphite
 body:
   - type: markdown

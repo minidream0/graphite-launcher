@@ -1,0 +1,31 @@
+name: Bug report (EN)
+description: Report a problem in Graphite
+body:
+  - type: markdown
+    attributes:
+      value: Remove passwords, tokens and account data from any logs you share.
+  - type: input
+    id: version
+    attributes:
+      label: Graphite version
+      placeholder: 0.11.2
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Windows, Minecraft and loader
+      placeholder: Windows 11, Minecraft 1.20.1, Fabric
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: What happened and how to reproduce it
+      description: Include the steps, expected result and actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Error message or redacted log

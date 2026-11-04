@@ -1,4 +1,4 @@
-name: Предложение
+name: Предложение (RU)
 description: Предложить изменение Graphite
 body:
   - type: textarea
