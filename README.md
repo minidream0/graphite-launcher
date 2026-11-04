@@ -1,16 +1,14 @@
-<img src="graphite-web/public/graphite.svg" width="52" alt="Graphite logo">
+<img src="graphite-web/public/graphite.svg" width="52" alt="Graphite">
 
 # Graphite Launcher
 
 English | [Русский](README.ru.md)
 
-Minecraft: Java Edition launcher for Windows. Manage instances, install content from Modrinth and keep separate settings for each instance.
+Minecraft: Java Edition launcher for Windows. Separate instances, content from Modrinth and two themes: Graphite and Smoky.
 
-**0.11.2 beta · Windows x64**
+[Download](https://github.com/minidream0/graphite-launcher/releases/latest) · [Issues and suggestions](https://github.com/minidream0/graphite-launcher/issues)
 
-[Download installer](https://github.com/minidream0/graphite-launcher/releases/download/v0.11.2/Graphite-Setup-0.11.2.exe) · [Download portable](https://github.com/minidream0/graphite-launcher/releases/download/v0.11.2/Graphite-0.11.2-portable.zip) · [Latest release](https://github.com/minidream0/graphite-launcher/releases/latest)
-
-![Graphite library](docs/images/graphite.png)
+![Instance library](docs/images/graphite.png)
 
 <details>
 <summary>Smoky theme</summary>
@@ -19,58 +17,33 @@ Minecraft: Java Edition launcher for Windows. Manage instances, install content 
 
 </details>
 
-## Install
-
-Run the installer, or extract the portable ZIP into a writable folder and run `portable/Graphite.exe`. Keep the `engine` folder beside it.
-
-Graphite needs Microsoft Edge WebView2 Runtime. The installer downloads it if it is missing, which requires internet access. The portable version does not install it automatically.
-
-Accounts, worlds and settings are stored in `data` beside Graphite.exe. Keep that folder when updating manually. The downloads contain no Minecraft game files or personal accounts.
-
-Release assets include a source archive and `SHA256SUMS.txt` for checking the downloads.
-
 ## Features
 
-- Minecraft instances with loader, Java and memory settings.
+- Separate instances with Minecraft version, mod loader, Java and memory settings.
 - Microsoft sign-in and local profiles.
-- Modrinth modpacks, mods, resource packs and shaders. Import `.mrpack` files and Prism instance ZIPs.
-- Enable, disable and remove installed content. Back up worlds and settings. Modpack updates create a separate copy and carry over worlds and settings.
-- Favorite servers, status checks and joining with a selected instance.
-- Launch logs, crash diagnostics, session history, download queue and disk usage.
-- Graphite and Smoky themes, with reduced-motion support.
+- Modpacks, mods, resource packs and shaders from Modrinth.
+- Import `.mrpack` files and Prism instances, or drag files into the window.
+- Mod management and backups of worlds and settings.
+- Modpack updates in a separate copy with worlds and settings carried over.
+- Favorite servers and joining with a selected instance.
+- Logs, crash diagnostics, session history, download queue and disk cleanup.
 
-## Beta limitations
+## Install
 
-The EXE and installer are not digitally signed. Windows may warn about them or block them, depending on its settings.
+Download and run the installer from the [release page](https://github.com/minidream0/graphite-launcher/releases/latest).
 
-Microsoft sign-in currently uses Prism Launcher's upstream application ID. Graphite has no separate Microsoft application registration, so sign-in depends on that external registration. The bundled CurseForge key is disabled; there is no CurseForge interface.
+For the portable version, extract the archive and run `portable/Graphite.exe`. Keep `engine` beside it. When updating manually, keep the `data` folder containing your accounts, worlds and settings.
 
-Local automated tests and UI checks passed. Installation on another clean PC without WebView2 and every combination of account, Minecraft version and mods have not been verified. Launcher changes do not guarantee higher FPS in Minecraft.
+WebView2 is required. The installer downloads it if needed; for portable, install it separately.
 
-## Report a problem
+## Development
 
-[Open an issue](https://github.com/minidream0/graphite-launcher/issues/new/choose) in English or Russian. Include the Graphite, Windows, Minecraft and loader versions, steps to reproduce and the error message. Remove tokens, passwords, account files and private addresses from logs.
+Interface: React and Tailwind. Host: Rust/Tauri with system WebView2. Engine: modified Prism Launcher in C++.
 
-For vulnerabilities, use [private reporting](https://github.com/minidream0/graphite-launcher/security/advisories/new). See [SECURITY.md](SECURITY.md).
-
-## Build from source
-
-The interface uses React and Tailwind. The Rust/Tauri host uses the system WebView2 runtime. A modified Prism Launcher engine handles Minecraft through C++. Graphite does not use Electron.
-
-From `graphite-web`:
-
-```powershell
-npm ci
-npm test
-npm run build
-```
-
-The complete application also needs the Rust host and C++ engine. See [BUILD.md](BUILD.md) for commands and dependencies, and [THIRD-PARTY.md](THIRD-PARTY.md) for component notices.
+[Build instructions](BUILD.md) · [Third-party components](THIRD-PARTY.md) · [Security](SECURITY.md)
 
 ## License
 
-Graphite is licensed under [GPL-3.0-only](LICENSE). Individual components retain their own licenses.
+[GPL-3.0-only](LICENSE). Third-party components have their own licenses.
 
-The included engine is based on [Prism Launcher](https://github.com/PrismLauncher/PrismLauncher), which derives from MultiMC. Its modified source is included in this repository.
-
-Graphite is an independent project, unaffiliated with and not endorsed by Prism Launcher, Mojang or Microsoft. A local profile does not grant a Minecraft license.
+Graphite is based on [Prism Launcher](https://github.com/PrismLauncher/PrismLauncher). The modified engine source is included in this repository. Graphite is not an official product of Prism Launcher, Mojang or Microsoft.
