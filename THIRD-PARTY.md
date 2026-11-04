@@ -1,5 +1,9 @@
 # Third-party components
 
+## Porthole
+
+The optional co-op integration controls a separately installed [Porthole](https://store.steampowered.com/app/4963920/) process through its CLI. Graphite does not bundle Porthole binaries, its Steam DLLs or the Steamworks SDK. See [PORTHOLE.md](graphite-web/PORTHOLE.md) for the tested protocol and commands.
+
 - **Prism Launcher / MultiMC-derived code**: GPL-3.0-only for launcher code. Preserve `PrismLauncher/LICENSE`, `COPYING.md` and individual notices. Upstream Prism branding has separate CC BY-SA terms. Graphite is an independent project, not an official Prism distribution. https://github.com/PrismLauncher/PrismLauncher
 - **libnbtplusplus and other vendored C++ libraries**: sources and original notices are in `PrismLauncher/libraries`. Do not replace their licenses with Graphite's root license.
 - **React, React DOM, Three.js, Phosphor icons and IBM Plex Sans**: package versions are recorded in package-lock.json. Available license texts are included in `third-party/runtime-licenses` and in the portable distribution's `licenses` directory.

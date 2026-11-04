@@ -4,6 +4,7 @@ mod catalog;
 mod engine;
 mod icons;
 mod offline;
+mod porthole;
 mod queue;
 mod servers;
 mod storage;
@@ -36,6 +37,7 @@ pub struct App {
     pub drops: Mutex<HashSet<PathBuf>>,
     pub busy: Mutex<HashSet<String>>,
     pub servers_lock: Mutex<()>,
+    pub porthole: porthole::Porthole,
     pub session: Mutex<Option<auth::Session>>,
     pub selected: AtomicBool,
     pub offline: Mutex<offline::Profiles>,
@@ -88,6 +90,7 @@ impl App {
         let offline = offline::load(&data)?;
         Ok(Self {
             native: engine::Native::new(binary, data.clone())?,
+            porthole: porthole::Porthole::new(&data),
             data,
             http: client(20)?,
             auth_http: client(15)?,
@@ -170,6 +173,7 @@ impl App {
         let a = |i: usize| args.get(i).cloned().unwrap_or(Value::Null);
         let s = |i: usize| args.get(i).and_then(Value::as_str).unwrap_or("");
         match channel {
+            "porthole" => self.porthole(s(0), &a(1)),
             "tools" => self.tools(s(0), &a(1)),
             "library" => self.library(),
             "versions" => self.versions(
@@ -549,6 +553,7 @@ fn main() {
                 let state = state.inner().clone();
                 let handle = window.app_handle().clone();
                 std::thread::spawn(move || {
+                    state.porthole.stop();
                     state.native.close();
                     handle.exit(0);
                 });

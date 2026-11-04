@@ -2,12 +2,14 @@ import React,{useEffect,useRef,useState} from 'react';
 import {Globe,ArrowClockwise,PencilSimple,Play,Plus,Trash,SpinnerGap,DownloadSimple,GraphiteIcon,WarningCircle,Check} from './icons';
 import {message} from './errors';
 import {createPoller} from './poll';
+import Porthole from './Porthole';
 import {matchingInstances,chooseInstance,normalizeServer,validateServer} from './server-form';
 const api=window.launcher;
 const checked=value=>value?new Date(value).toLocaleString('ru',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'';
 function Field({name,label,error,children}){return <label className="form-field"><span>{label}</span>{React.cloneElement(children,{name,'aria-invalid':!!error,'aria-describedby':error?`server-${name}-error`:undefined})}{error&&<small className="server-field-error" id={`server-${name}-error`}>{error}</small>}</label>}
 
 export default function Servers({instances,onStarted,onAccounts}){
+ const [tab,setTab]=useState('favorites');
  const [items,setItems]=useState(null),[form,setForm]=useState(null),[statuses,setStatuses]=useState({}),[busy,setBusy]=useState(''),[checking,setChecking]=useState(false),[error,setError]=useState(''),[errors,setErrors]=useState({}),[remove,setRemove]=useState('');
  const formElement=useRef(null),poller=useRef(null),currentItems=useRef(items);currentItems.current=items;
  useEffect(()=>{let alive=true;Promise.all([api.servers('list'),api.servers('cached-status')]).then(([list,cache])=>{if(alive){setStatuses(cache);setItems(list)}}).catch(e=>{if(alive)setError(message(e))});return()=>{alive=false}},[]);
@@ -31,7 +33,9 @@ export default function Servers({instances,onStarted,onAccounts}){
  }
  async function bind(item,instanceId){setBusy(item.id);setError('');try{setItems(await api.servers('save',{...item,instanceId}))}catch(e){setError(message(e))}finally{setBusy('')}}
  async function action(method,id){setBusy(id);setError('');try{const result=await api.servers(method,{id});if(method==='remove'){setItems(result);setRemove('')}else onStarted()}catch(e){if(e.message.includes('AUTH_REQUIRED'))onAccounts();else setError(message(e))}finally{setBusy('')}}
- return <div className="servers-panel server-workspace">{error&&!form&&<p role="alert" className="panel-error">{error}</p>}
+ return <div className="servers-panel server-workspace">
+  <nav className="server-tabs" aria-label="Раздел серверов"><button type="button" aria-pressed={tab==='favorites'} onClick={()=>setTab('favorites')}>Избранные серверы</button><button type="button" aria-pressed={tab==='friends'} onClick={()=>setTab('friends')}>С друзьями</button></nav>
+  {tab==='friends'?<Porthole instances={instances} onStarted={onStarted} onAccounts={onAccounts}/>:<>{error&&!form&&<p role="alert" className="panel-error">{error}</p>}
   <div className="servers-intro"><div><span className="eyebrow">Совместная игра</span><h3>Твои серверы</h3><p>Сервер, подходящая сборка и подключение — в одном месте.</p></div><GraphiteIcon id="graphite-v1-actions-16" size={64}/></div>
   <div className="installed-head"><span>{items?.length||0} сохранено</span><div className="manage-actions"><button type="button" className="secondary-button" disabled={checking||!items?.length} onClick={()=>poller.current?.refresh()}>{checking?<SpinnerGap className="spin" size={16}/>:<ArrowClockwise size={20}/>}Обновить статус</button><button type="button" className="primary-button" disabled={!!busy} onClick={()=>openForm({name:'',address:'',instanceId:'',minecraft:'',project:''})}><Plus size={16}/>Добавить сервер</button></div></div>
   {form&&<form ref={formElement} className="server-form" onSubmit={save} noValidate>
@@ -62,5 +66,5 @@ export default function Servers({instances,onStarted,onAccounts}){
     {remove===item.id&&<div className="inline-confirm"><span>Убрать из избранного?</span><button type="button" className="text-button" onClick={()=>setRemove('')}>Отмена</button><button type="button" className="text-button danger" disabled={!!busy} onClick={()=>action('remove',item.id)}>Удалить</button></div>}
    </article>
   })}{items?.length===0&&!form&&<div className="tool-empty"><Globe size={52}/><h3>Добавь первый сервер</h3><p>Укажи адрес и привяжи сборку для подключения.</p></div>}{items===null&&!error&&<div className="panel-loading"><SpinnerGap className="spin"/>Загрузка…</div>}</div>
- </div>;
+ </>}</div>;
 }

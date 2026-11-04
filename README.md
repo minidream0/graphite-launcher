@@ -28,6 +28,8 @@ Graphite supports Microsoft sign-in and local profiles. Save favorite servers, c
 
 Prepare an instance with the Minecraft version a server needs and check it before launching.
 
+The Friends tab lets you host a world or join one by code. It uses Porthole, installed through Steam, to handle the connection. Graphite shows the room code, port and connection state, then launches the selected instance when connected. No router port forwarding is needed.
+
 ## Logs and history
 
 Launch logs are available inside the launcher. After a failed launch, you can read the error and copy the log. Diagnostics help investigate Java, dependency and mod problems.

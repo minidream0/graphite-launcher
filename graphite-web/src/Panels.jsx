@@ -13,7 +13,7 @@ import AppearanceSettings from './AppearanceSettings';
 import {AccountIcon,ShaderIcon,Stack,Globe,Package,PuzzlePiece,ImportIcon,NewProfile,LogsIcon,JavaIcon,MemoryIcon,ArrowRight,Check,Copy,Cube,DownloadSimple,FolderOpen,GearSix,Plus,SpinnerGap,UserCircle,WarningCircle,X} from './icons';
 const api=window.launcher;
 import {message} from './errors';
-const titles={preflight:'Проверка сборки',diagnostic:'Поиск причины вылета',history:'История сессий',disk:'Место на диске',resources:'Ресурс-паки и шейдеры',servers:'Избранные серверы',create:'Новая сборка',settings:'Настройки',edit:'Настройки сборки',accounts:'Учётные записи',downloads:'Очередь загрузок',modrinth:'Modrinth',installed:'Установленные моды',log:'Журнал запуска',manage:'Управление сборкой',import:'Импорт сборки'};
+const titles={preflight:'Проверка сборки',diagnostic:'Поиск причины вылета',history:'История сессий',disk:'Место на диске',resources:'Ресурс-паки и шейдеры',servers:'Серверы',create:'Новая сборка',settings:'Настройки',edit:'Настройки сборки',accounts:'Учётные записи',downloads:'Очередь загрузок',modrinth:'Modrinth',installed:'Установленные моды',log:'Журнал запуска',manage:'Управление сборкой',import:'Импорт сборки'};
 const jobName=job=>({'Install Minecraft':'Установка Minecraft','Install Modrinth pack':'Установка сборки Modrinth','Install Modrinth mods':'Установка модов Modrinth','Launch Minecraft':'Запуск Minecraft','Copy instance':'Копирование сборки','Import instance':'Импорт сборки',Microsoft:'Вход в Microsoft'}[job.label]||job.label);
 function Field({label,children,hint}){return <label className="form-field"><span>{label}</span>{children}{hint&&<small>{hint}</small>}</label>}
 function Settings({panel,onClose,run}){

@@ -97,7 +97,7 @@ with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=6,strict_tim
 shutil.copy2(archive,out/'Graphite-Workspace-Windows-x64.zip')
 sources=out/'Graphite-Rust-source.zip'
 with zipfile.ZipFile(sources,'w',zipfile.ZIP_DEFLATED,compresslevel=6,strict_timestamps=False) as zipped:
-    for check in ['tauri-check.cjs','operations-check.cjs','operations-native-check.cjs','startup-preview.cjs','servers-check.cjs','smoky-check.cjs','smoky-native-check.cjs']:
+    for check in ['tauri-check.cjs','operations-check.cjs','operations-native-check.cjs','startup-preview.cjs','servers-check.cjs','smoky-check.cjs','smoky-native-check.cjs','porthole-check.cjs']:
         zipped.write(web.parent/check,check)
     roots=[web]+([args.native_source.resolve()] if args.native_source else [])
     for root in roots:
